@@ -1,7 +1,7 @@
-Moralis.initialize(""); // Application id from moralis.io
-Moralis.serverURL = ""; //Server url from moralis.io
+Moralis.initialize("cbk0tJttDwxzKobjzGZK9uVPiV6r0U179lah5jNy"); // Application id from moralis.io
+Moralis.serverURL = "https://nu5ec99mmwp6.usemoralis.com:2053/server"; //Server url from moralis.io
 
-const nft_contract_address = "" //NFT Minting Contract Use This One "Batteries Included", code of this contract is in the github repository under contract_base for your reference.
+const nft_contract_address = "0x0Fb6EF3505b9c52Ed39595433a21aF9B5FCc4431" //NFT Minting Contract Use This One "Batteries Included", code of this contract is in the github repository under contract_base for your reference.
 /*
 Available deployed contracts
 Ethereum Rinkeby 0x0Fb6EF3505b9c52Ed39595433a21aF9B5FCc4431
@@ -41,6 +41,53 @@ async function upload(){
   const metadata = {
     "name":document.getElementById("name").value,
     "description":document.getElementById("description").value,
+    "attributes": [
+      {
+      "trait_type": "Level",
+      "value": Math.floor(Math.random() * (100 - 65)) + 65,
+      "max_value": 100},
+      {"trait_type": "Age",
+      "value": Math.floor(Math.random() * (2000 - 20)) + 20},
+      {"trait_type": "Health (HP)",
+      "value": Math.floor(Math.random() * (500 - 100)) + 100,
+      "max_value": 500},
+      {"trait_type": "Speed",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"trait_type": "Agility",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"trait_type": "Luck",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},      
+      {"trait_type": "Attack",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"trait_type": "Defense",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"trait_type": "Magic (MP)",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"trait_type": "Intellect",
+      "value": Math.floor(Math.random() * (100 - 55)) + 55,
+      "max_value": 100},
+      {"display_type": "boost_number", 
+      "trait_type": "HP", 
+      "value": Math.floor(Math.random() * 100)},
+      {"display_type": "boost_number", 
+      "trait_type": "MP", 
+      "value": Math.floor(Math.random() * 100)}, 
+      {"display_type": "boost_number", 
+      "trait_type": "ATK", 
+      "value": Math.floor(Math.random() * 100)}, 
+      {"display_type": "boost_number", 
+      "trait_type": "DEF", 
+      "value": Math.floor(Math.random() * 100)},
+      {"display_type": "boost_number", 
+      "trait_type": "LUCK", 
+      "value": Math.floor(Math.random() * 100)},
+  ],
     "image":imageURI
   }
   const metadataFile = new Moralis.File("metadata.json", {base64 : btoa(JSON.stringify(metadata))});
